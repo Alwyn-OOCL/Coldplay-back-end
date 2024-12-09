@@ -19,43 +19,6 @@ public class RedisCacheService {
 
     private final RedisTemplate redisTemplate;
 
-    /**
-     * 写入缓存
-     *
-     * @param key
-     * @param offset 位 8Bit=1Byte
-     * @return
-     */
-    public boolean setBit(String key, long offset, boolean isShow) {
-        boolean result = false;
-        try {
-            ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
-            operations.setBit(key, offset, isShow);
-            result = true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-
-    /**
-     * 写入缓存
-     *
-     * @param key
-     * @param offset
-     * @return
-     */
-    public boolean getBit(String key, long offset) {
-        boolean result = false;
-        try {
-            ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
-            result = operations.getBit(key, offset);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-
 
     /**
      * 写入缓存
@@ -145,7 +108,7 @@ public class RedisCacheService {
      * @return
      */
     public boolean exists(final String key) {
-        return redisTemplate.hasKey(key);
+        return Boolean.TRUE.equals(redisTemplate.hasKey(key));
     }
 
     /**

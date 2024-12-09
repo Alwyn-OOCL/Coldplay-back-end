@@ -17,7 +17,7 @@ public class LoginController {
     private final LoginService loginService;
 
     @PostMapping
-    public Result register(@RequestBody LoginFormDTO loginFormDTO) {
+    public Result login(@RequestBody LoginFormDTO loginFormDTO) {
         return loginService.login(loginFormDTO);
     }
 }

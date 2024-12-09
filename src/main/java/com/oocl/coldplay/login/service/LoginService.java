@@ -9,9 +9,10 @@ import com.oocl.coldplay.common.model.Result;
 import com.oocl.coldplay.common.model.user.UserDTO;
 import com.oocl.coldplay.common.model.user.UserHolder;
 import com.oocl.coldplay.common.redis.service.RedisCacheService;
-import com.oocl.coldplay.entity.User;
+import com.oocl.coldplay.common.utils.RegexUtils;
+import com.oocl.coldplay.user.model.User;
 import com.oocl.coldplay.login.model.LoginFormDTO;
-import com.oocl.coldplay.service.UserService;
+import com.oocl.coldplay.user.service.UserService;
 import java.util.concurrent.TimeUnit;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,14 @@ public class LoginService {
     private final RedisCacheService redisCacheService;
 
     public Result login(LoginFormDTO loginForm) {
+
+        String email = loginForm.getEmail();
+        //校验邮箱格式
+        boolean emailInvalid = RegexUtils.isEmailInvalid(email);
+        if (emailInvalid) {
+            return Result.fail("请输入正确的邮箱");
+        }
+
         // 根据用户名 / 邮箱查询用户
         User user = null;
         if (loginForm.getEmail() != null) {
