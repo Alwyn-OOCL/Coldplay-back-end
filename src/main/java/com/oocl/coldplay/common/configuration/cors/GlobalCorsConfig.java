@@ -1,4 +1,4 @@
-package com.oocl.coldplay.configuration;
+package com.oocl.coldplay.common.configuration.cors;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
