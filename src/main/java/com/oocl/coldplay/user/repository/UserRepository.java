@@ -1,6 +1,6 @@
-package com.oocl.coldplay.repository;
+package com.oocl.coldplay.user.repository;
 
-import com.oocl.coldplay.entity.User;
+import com.oocl.coldplay.user.model.User;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -10,6 +10,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByName(String userName);
     Optional<User> findByEmail(String email);
-
 
 }

@@ -1,7 +1,7 @@
-package com.oocl.coldplay.service;
+package com.oocl.coldplay.user.service;
 
-import com.oocl.coldplay.entity.User;
-import com.oocl.coldplay.repository.UserRepository;
+import com.oocl.coldplay.user.model.User;
+import com.oocl.coldplay.user.repository.UserRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

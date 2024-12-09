@@ -1,4 +1,4 @@
-package com.oocl.coldplay.entity;
+package com.oocl.coldplay.user.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
